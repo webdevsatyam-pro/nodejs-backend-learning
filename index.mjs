@@ -99,6 +99,33 @@ app.patch("/forget_password", async (req, res) => {
   res.json({ message: "check your email" });
 });
 
+// verify otp
+
+app.post("/verify-otp", async (req, res) => {
+  const { email, OTP } = req.body;
+
+  const user = await prisma.user.findUnique({
+    where: {
+      email: email,
+    },
+  });
+
+  if (!user || user.OTP !== OTP) {
+    return res.status(400).json({ message: "Invalid OTP" });
+  }
+
+  await prisma.user.update({
+    where: {
+      id: user.id,
+    },
+    data: {
+      OTP: null,
+    },
+  });
+
+  res.json({ message: "OTP verified successfully" });
+});
+
 app.listen(port, () => {
   console.log(`server start from ${port}`);
 });
