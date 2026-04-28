@@ -76,7 +76,8 @@ export const UserScalarFieldEnum = {
   name: 'name',
   password: 'password',
   Address: 'Address',
-  OTP: 'OTP'
+  OTP: 'OTP',
+  OtpGeneratedAt: 'OtpGeneratedAt'
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]

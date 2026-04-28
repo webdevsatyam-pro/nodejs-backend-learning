@@ -89,6 +89,7 @@ app.patch("/forget_password", async (req, res) => {
     },
     data: {
       OTP: strOTP,
+      OtpGeneratedAt: new Date(Date.now()),
     },
   });
 
