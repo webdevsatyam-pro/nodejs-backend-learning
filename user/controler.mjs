@@ -48,6 +48,9 @@ const login = async (req, res) => {
       email: user.email,
     },
     process.env.token_secret,
+    {
+      expiresIn: "1h",
+    },
   );
 
   res.json({ message: "login successful", token: token });
