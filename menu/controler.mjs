@@ -12,9 +12,7 @@ const createMenu = async (req, res) => {
   });
   res.json(menu);
 };
-const getMenus = async (req, res) => {
-  res.json({ key: "get menus" });
-};
+const getMenus = async (req, res) => {};
 const updateMenu = async (req, res) => {
   res.json({ key: "update menu" });
 };
